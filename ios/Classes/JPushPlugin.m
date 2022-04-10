@@ -151,6 +151,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
     } else if([@"resumePush" isEqualToString:call.method]) {
         JPLog(@"ios platform not support resume push.");
         //[self applyPushAuthority:call result:result];
+        result(nil);
     } else if([@"clearAllNotifications" isEqualToString:call.method]) {
         [self clearAllNotifications:call result:result];
     } else if ([@"clearNotification" isEqualToString:call.method]) {
@@ -165,6 +166,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
         [self isNotificationEnabled:call result:result];
     } else if([@"openSettingsForNotification"isEqualToString:call.method]) {
         [self openSettingsForNotification];
+        result(@YES);
     } else if ([@"setAuth" isEqualToString:call.method]) {
         [self setAuth:call result:result];
     } else{
@@ -189,6 +191,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
                            appKey:arguments[@"appKey"]
                           channel:arguments[@"channel"]
                  apsForProduction:[arguments[@"production"] boolValue]];
+    result(nil);
 }
 
 //设置APP在前台时是否展示通知
@@ -197,6 +200,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
     NSDictionary *arguments = call.arguments;
     NSNumber *unShow = arguments[@"UnShow"];
     if(unShow && [unShow isKindOfClass:[NSNumber class]]) self.unShow = [unShow boolValue];
+    result(@YES);
 }
 
 - (void)applyPushAuthority:(FlutterMethodCall*)call result:(FlutterResult)result {
@@ -215,6 +219,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
     entity.types = notificationTypes;
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    result(nil);
 }
 
 - (void)setTags:(FlutterMethodCall*)call result:(FlutterResult)result {
@@ -340,11 +345,13 @@ static NSMutableArray<FlutterResult>* getRidResults;
     }
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: badge];
     [JPUSHService setBadge: badge];
+    result(@YES);
 }
 
 - (void)stopPush:(FlutterMethodCall*)call result:(FlutterResult)result {
     JPLog(@"stopPush:");
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+    result(nil);
 }
 - (void)clearAllNotifications:(FlutterMethodCall*)call result:(FlutterResult)result {
     JPLog(@"clearAllNotifications:");
@@ -359,6 +366,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
         // iOS 10 以下移除所有推送；iOS 10 以上移除所有在通知中心显示推送和待推送请求
         [JPUSHService removeNotification:nil];
     }
+    result(nil);
 }
 - (void)clearNotification:(FlutterMethodCall*)call result:(FlutterResult)result {
     JPLog(@"clearNotification:");
@@ -377,6 +385,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
         // Fallback on earlier versions
     }
     [JPUSHService removeNotification:identifier];
+    result(nil);
 }
 
 - (void)getLaunchAppNotification:(FlutterMethodCall*)call result:(FlutterResult)result {
@@ -502,7 +511,7 @@ static NSMutableArray<FlutterResult>* getRidResults;
     [JGInforCollectionAuth JCollectionAuth:^(JGInforCollectionAuthItems * _Nonnull authInfo) {
         authInfo.isAuth = enable;
     }];
-    
+    result(@YES);
 }
 
 

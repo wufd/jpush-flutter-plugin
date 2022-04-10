@@ -97,7 +97,6 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
             getAlias(call, result);
         } else if (call.method.equals("deleteAlias")) {
             deleteAlias(call, result);
-            ;
         } else if (call.method.equals("stopPush")) {
             stopPush(call, result);
         } else if (call.method.equals("resumePush")) {
@@ -142,6 +141,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     private void setWakeEnable(MethodCall call, Result result) {
         HashMap<String, Object> map = call.arguments();
         if (map == null) {
+            result.success(false);
             return;
         }
         Boolean enable = (Boolean) map.get("enable");
@@ -149,6 +149,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
             enable = false;
         }
         JCoreInterface.setWakeEnable(context,enable);
+        result.success(true);
     }
 
     // 主线程再返回数据
@@ -178,6 +179,12 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         boolean debug = (boolean) map.get("debug");
         JPushInterface.setDebugMode(debug);
 
+        // VIP 服务权限 (关闭自动启，关联启动)
+        // 然后在初始化极光sdk（JPushInterface.init(this);）的上面调用如下方法
+        JCoreInterface.setWakeEnable(context, false);
+        // 如果需要关闭地理位置。（不需要关闭可以不操作）
+        JPushInterface.setLbsEnable(context, false);
+
         JPushInterface.init(context);            // 初始化 JPush
         JPushInterface.setNotificationCallBackEnable(context, true);
         String channel = (String) map.get("channel");
@@ -187,6 +194,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
         // try to clean getRid cache
         scheduleCache();
+        result.success(null);
     }
 
     public void scheduleCache() {
@@ -301,18 +309,21 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         Log.d(TAG, "stopPush:");
 
         JPushInterface.stopPush(context);
+        result.success(null);
     }
 
     public void resumePush(MethodCall call, Result result) {
         Log.d(TAG, "resumePush:");
 
         JPushInterface.resumePush(context);
+        result.success(null);
     }
 
     public void clearAllNotifications(MethodCall call, Result result) {
         Log.d(TAG, "clearAllNotifications: ");
 
         JPushInterface.clearAllNotifications(context);
+        result.success(null);
     }
 
     public void clearNotification(MethodCall call, Result result) {
@@ -321,12 +332,13 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         if (id != null) {
             JPushInterface.clearNotificationById(context, (int) id);
         }
+        result.success(null);
     }
 
     public void getLaunchAppNotification(MethodCall call, Result result) {
         Log.d(TAG, "");
 
-
+        result.success(null);
     }
 
     public void getRegistrationID(MethodCall call, Result result) {
@@ -334,6 +346,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
         if (context == null) {
             Log.d(TAG, "register context is nil.");
+            result.success("");
             return;
         }
 
@@ -368,8 +381,10 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
             ln.setBroadcastTime(date);
 
             JPushInterface.addLocalNotification(context, ln);
+            result.success(true);
         } catch (Exception e) {
             e.printStackTrace();
+            result.success(false);
         }
     }
 
@@ -382,6 +397,8 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
             int num = (int) numObject;
             JPushInterface.setBadgeNumber(context, num);
             result.success(true);
+        } else {
+            result.success(false);
         }
     }
 
@@ -391,7 +408,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         int isEnabled = JPushInterface.isNotificationEnabled(context);
         //1表示开启，0表示关闭，-1表示检测失败
         HashMap<String, Object> map = new HashMap();
-        map.put("isEnabled", isEnabled == 1 ? true : false);
+        map.put("isEnabled", isEnabled == 1);
 
         runMainThread(map, result, null);
     }
@@ -400,7 +417,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         Log.d(TAG, "openSettingsForNotification: ");
 
         JPushInterface.goToAppNotificationSettings(context);
-
+        result.success(true);
     }
 
     /**
