@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +32,7 @@ class JPush {
   EventHandler? _onReceiveNotificationAuthorization;
   EventHandler? _onNotifyMessageUnShow;
 
-  Future<void setup({
+  Future<void> setup({
     required String appKey,
     bool production = false,
     String channel = '',
@@ -131,7 +130,8 @@ class JPush {
   /// 申请推送权限，注意这个方法只会向用户弹出一次推送权限请求（如果用户不同意，之后只能用户到设置页面里面勾选相应权限），需要开发者选择合适的时机调用。
   ///
   Future<void> applyPushAuthority(
-      [NotificationSettingsIOS iosSettings = const NotificationSettingsIOS()]) async {
+      [NotificationSettingsIOS iosSettings =
+          const NotificationSettingsIOS()]) async {
     print(flutter_log + "applyPushAuthority:");
 
     if (!_platform.isIOS) {
@@ -224,7 +224,7 @@ class JPush {
   Future<Map<dynamic, dynamic>?> getAlias() async {
     print(flutter_log + "getAlias:");
     final Map<dynamic, dynamic>? result =
-     await _channel.invokeMethod('getAlias');
+        await _channel.invokeMethod('getAlias');
     return result;
   }
 
@@ -399,21 +399,16 @@ class LocalNotification {
   final String? soundName; //?
   final String? subtitle; //?
 
-  const LocalNotification({
-    required this.id,
-    required this.title,
-    required this.content,
-    required this.fireTime,
-    this.buildId,
-    this.extra,
-    this.badge = 0,
-    this.soundName,
-    this.subtitle
-  })
-      : assert(id != null),
-        assert(title != null),
-        assert(content != null),
-        assert(fireTime != null);
+  const LocalNotification(
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.fireTime,
+      this.buildId,
+      this.extra,
+      this.badge = 0,
+      this.soundName,
+      this.subtitle});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
