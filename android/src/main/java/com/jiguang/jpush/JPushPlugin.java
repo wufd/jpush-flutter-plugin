@@ -129,6 +129,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     private void setAuth(MethodCall call, Result result){
         HashMap<String, Object> map = call.arguments();
         if (map == null) {
+            result.success(false);
             return;
         }
         Boolean enable = (Boolean) map.get("enable");
@@ -137,6 +138,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         }
         Log.d("debug_110","setauth="+enable);
         JCollectionAuth.setAuth(context,enable);
+        result.success(true);
     }
     private void setWakeEnable(MethodCall call, Result result) {
         HashMap<String, Object> map = call.arguments();
