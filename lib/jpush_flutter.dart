@@ -43,15 +43,18 @@ class JPush {
   }
 
   //APP活跃在前台时是否展示通知
-  void setUnShowAtTheForeground({
-    bool unShow = false,
-  }) {
+  void setUnShowAtTheForeground({bool unShow = false}) {
     print(flutter_log + "setUnShowAtTheForeground:");
     _channel.invokeMethod('setUnShowAtTheForeground', {'UnShow': unShow});
   }
 
   void setWakeEnable({bool enable = false}) {
     _channel.invokeMethod('setWakeEnable', {'enable': enable});
+  }
+
+  void setAuth({bool enable = true}) {
+    print(flutter_log + "setAuth:");
+    _channel.invokeMethod('setAuth', {'enable': enable});
   }
 
   ///
@@ -182,18 +185,20 @@ class JPush {
         await _channel.invokeMethod('getAllTags');
     return result;
   }
+
   ///
   /// 获取所有当前绑定的 alias
   ///
-  /// @param {Function} success = ({"tags":[String]}) => {  }
+  /// @param {Function} success = ({"alias":String}) => {  }
   /// @param {Function} fail = ({"errorCode":int}) => {  }
   ///
   Future<Map<dynamic, dynamic>> getAlias() async {
     print(flutter_log + "getAlias:");
     final Map<dynamic, dynamic> result =
-    await _channel.invokeMethod('getAlias');
+        await _channel.invokeMethod('getAlias');
     return result;
   }
+
   ///
   /// 重置 alias.
   ///
