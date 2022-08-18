@@ -63,9 +63,9 @@ class JPush {
     await _channel.invokeMethod('setWakeEnable', {'enable': enable});
   }
 
-  void setAuth({bool enable = true}) {
+  Future<void> setAuth({bool enable = true}) async {
     print(flutter_log + "setAuth:");
-    _channel.invokeMethod('setAuth', {'enable': enable});
+    await _channel.invokeMethod('setAuth', {'enable': enable});
   }
 
   ///
