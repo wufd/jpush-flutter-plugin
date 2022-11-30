@@ -121,6 +121,8 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
             setWakeEnable(call, result);
         } else if (call.method.equals("setAuth")) {
             setAuth(call, result);
+        } else if (call.method.equals("testCountryCode")) {
+            testCountryCode(call, result);
         } else {
             result.notImplemented();
         }
@@ -136,8 +138,13 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         if (enable == null) {
             enable = false;
         }
-        Log.d("debug_110","setauth="+enable);
         JCollectionAuth.setAuth(context,enable);
+        result.success(true);
+    }
+    private void testCountryCode(MethodCall call, Result result){
+        String code = call.arguments();
+        Log.d(TAG,"testCountryCode code="+code);
+        JCoreInterface.testCountryCode(code);
         result.success(true);
     }
     private void setWakeEnable(MethodCall call, Result result) {

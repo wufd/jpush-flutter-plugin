@@ -259,6 +259,14 @@ class JPush {
   }
 
   ///
+  /// 测试FCM
+  Future<void> testCountryCode(String code) async {
+    print(flutter_log + "testCountryCode:" + code);
+
+    await _channel.invokeMethod('testCountryCode', code);
+  }
+
+  ///
   /// 设置应用 Badge（小红点）
   ///
   /// @param {Int} badge
