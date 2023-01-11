@@ -50,5 +50,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:23.1.0'
 }
 
-// fcm
-apply plugin: 'com.google.gms.google-services'
+// fcm  project/app/build.gradle
+//apply plugin: 'com.google.gms.google-services'
