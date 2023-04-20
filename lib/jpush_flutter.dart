@@ -31,6 +31,9 @@ class JPush {
   EventHandler? _onReceiveMessage;
   EventHandler? _onReceiveNotificationAuthorization;
   EventHandler? _onNotifyMessageUnShow;
+  EventHandler? _onConnected;
+  EventHandler? _onInAppMessageClick;
+  EventHandler? _onInAppMessageShow;
 
   Future<void> setup({
     required String appKey,
@@ -63,6 +66,13 @@ class JPush {
     await _channel.invokeMethod('setWakeEnable', {'enable': enable});
   }
 
+  Future<void> enableAutoWakeup({bool enable = false}) async {
+    if (_platform.isIOS) {
+      return;
+    }
+    await _channel.invokeMethod('enableAutoWakeup', {'enable': enable});
+  }
+
   Future<void> setAuth({bool enable = true}) async {
     print(flutter_log + "setAuth:");
     await _channel.invokeMethod('setAuth', {'enable': enable});
@@ -77,6 +87,9 @@ class JPush {
     EventHandler? onReceiveMessage,
     EventHandler? onReceiveNotificationAuthorization,
     EventHandler? onNotifyMessageUnShow,
+    EventHandler? onConnected,
+    EventHandler? onInAppMessageClick,
+    EventHandler? onInAppMessageShow,
   }) {
     print(flutter_log + "addEventHandler:");
 
@@ -85,6 +98,9 @@ class JPush {
     _onReceiveMessage = onReceiveMessage;
     _onReceiveNotificationAuthorization = onReceiveNotificationAuthorization;
     _onNotifyMessageUnShow = onNotifyMessageUnShow;
+    _onConnected = onConnected;
+    _onInAppMessageClick = onInAppMessageClick;
+    _onInAppMessageShow = onInAppMessageShow;
   }
 
   Future<void> _handleMethod(MethodCall call) async {
@@ -120,6 +136,27 @@ class JPush {
           );
         }
         return;
+      case "onConnected":
+        if (_onConnected != null) {
+          _onConnected!(
+            call.arguments.cast<String, dynamic>(),
+          );
+        }
+        return;
+      case "onInAppMessageClick":
+        if (_onInAppMessageClick != null) {
+          _onInAppMessageClick!(
+            call.arguments.cast<String, dynamic>(),
+          );
+        }
+        return;
+      case "onInAppMessageShow":
+        if (_onInAppMessageShow != null) {
+          _onInAppMessageShow!(
+            call.arguments.cast<String, dynamic>(),
+          );
+        }
+        return;
       default:
         throw new UnsupportedError("Unrecognized Event");
     }
@@ -139,6 +176,26 @@ class JPush {
     }
 
     await _channel.invokeMethod('applyPushAuthority', iosSettings.toMap());
+  }
+
+  // iOS Only
+  // 进入页面， pageName：页面名  请与pageLeave配套使用
+  Future<void> pageEnterTo(String pageName) async {
+    print(flutter_log + "pageEnterTo:" + pageName);
+    if (!_platform.isIOS) {
+      return;
+    }
+    await _channel.invokeMethod('pageEnterTo', pageName);
+  }
+
+  // iOS Only
+  // 离开页面，pageName：页面名， 请与pageEnterTo配套使用
+  Future<void> pageLeave(String pageName) async {
+    print(flutter_log + "pageLeave:" + pageName);
+    if (!_platform.isIOS) {
+      return;
+    }
+    await _channel.invokeMethod('pageLeave', pageName);
   }
 
   ///
@@ -322,10 +379,10 @@ class JPush {
   /// 如果不是通过点击推送启动应用，比如点击应用 icon 直接启动应用，notification 会返回 @{}。
   /// @param {Function} callback = (Object) => {}
   ///
-  Future<Map<dynamic, dynamic>> getLaunchAppNotification() async {
+  Future<Map<dynamic, dynamic>?> getLaunchAppNotification() async {
     print(flutter_log + "getLaunchAppNotification:");
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('getLaunchAppNotification');
     return result;
   }
