@@ -3,10 +3,15 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
-#import <JPush/JPUSHService.h>
-#import <JCore/JGInforCollectionAuth.h>
+#import "JPUSHService.h"
+#import "JGInforCollectionAuth.h"
 
+#ifdef DEBUG
 #define JPLog(fmt, ...) NSLog((@"| JPUSH | Flutter | iOS | " fmt), ##__VA_ARGS__)
+#else
+#define JPLog(fmt, ...)
+#endif
+
 
 @interface NSError (FlutterError)
 @property(readonly, nonatomic) FlutterError *flutterError;
@@ -451,6 +456,11 @@ static NSMutableArray<FlutterResult>* getRidResults;
     
     if (params[@"soundName"] && ![params[@"soundName"] isEqualToString:@"<null>"]) {
         content.sound = params[@"soundName"];
+    }
+    
+    if (@available(iOS 15.0, *)) {
+      content.interruptionLevel = UNNotificationInterruptionLevelActive;
+      content.relevanceScore = 1;
     }
     
     JPushNotificationTrigger *trigger = [[JPushNotificationTrigger alloc] init];

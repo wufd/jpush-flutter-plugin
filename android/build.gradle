@@ -43,11 +43,11 @@ android {
 }
 
 dependencies {
-    implementation 'cn.jiguang.sdk:jpush-google:5.0.0'
+    implementation 'cn.jiguang.sdk:jpush-google:5.0.4'
 //    implementation 'cn.jiguang.sdk:jcore-google:4.2.0' # since 5.0.0 auto implementation
     // fcm same version : jpush-google
-    implementation 'cn.jiguang.sdk.plugin:fcm:5.0.0'
-    implementation 'com.google.firebase:firebase-messaging:23.1.0'
+    implementation 'cn.jiguang.sdk.plugin:fcm:5.0.4'
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
 }
 
 // fcm  project/app/build.gradle

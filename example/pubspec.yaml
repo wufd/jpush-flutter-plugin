@@ -21,9 +21,10 @@ dependencies:
   cupertino_icons: ^1.0.5
 
 dev_dependencies:
+  test: ^1.17.4
+  mockito: ^5.4.2
   flutter_test:
     sdk: flutter
-  mockito: ^5.4.0
 
   jpush_flutter: 
     path: ../

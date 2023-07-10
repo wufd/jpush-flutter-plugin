@@ -1,3 +1,12 @@
+## 2.4.6
+开放setChannelAndSound API 
+## 2.4.5
++ 修复：onConnected 崩溃问题
++ 升级：升级 Android+IOS JPush 5.0.4
+       升级 Android+IOS JCore 4.2.4
++ 新增：setLbsEnable API   
+## 2.4.4
++ 修复：优化代码结构
 ## 2.4.3
 + 升级：升级 Android+IOS JPush 5.0.0
        升级 Android+IOS JCore 4.2.0

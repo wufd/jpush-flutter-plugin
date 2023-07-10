@@ -3,21 +3,21 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-50.0.0",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-61.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/analyzer-5.2.0",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/analyzer-5.13.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     },
     {
       "name": "args",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/args-2.3.0",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/args-2.4.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "async",
@@ -33,9 +33,9 @@
     },
     {
       "name": "build",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/build-2.3.1",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/build-2.4.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     },
     {
       "name": "built_collection",
@@ -45,7 +45,7 @@
     },
     {
       "name": "built_value",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/built_value-8.1.4",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/built_value-8.6.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -63,9 +63,9 @@
     },
     {
       "name": "code_builder",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/code_builder-4.3.0",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/code_builder-4.5.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     },
     {
       "name": "collection",
@@ -75,21 +75,27 @@
     },
     {
       "name": "convert",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/convert-3.0.1",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/convert-3.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "coverage",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/coverage-1.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "crypto",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/crypto-3.0.1",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/crypto-3.0.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "dart_style",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/dart_style-2.2.4",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/dart_style-2.3.2",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     },
     {
       "name": "fake_async",
@@ -99,15 +105,15 @@
     },
     {
       "name": "file",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/file-6.1.2",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/file-7.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "fixnum",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/fixnum-1.0.0",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/fixnum-1.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "flutter",
@@ -122,10 +128,34 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "glob",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/glob-2.0.2",
+      "name": "frontend_server_client",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/frontend_server_client-3.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "glob",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/glob-2.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "http_multi_server",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/http_multi_server-3.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "io",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/io-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "js",
@@ -135,9 +165,9 @@
     },
     {
       "name": "logging",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/logging-1.0.2",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/logging-1.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "matcher",
@@ -158,14 +188,26 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "mockito",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/mockito-5.4.0",
+      "name": "mime",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/mime-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
+      "name": "mockito",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/mockito-5.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "node_preamble",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/node_preamble-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "package_config",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/package_config-2.0.2",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/package_config-2.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,10 +224,40 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "pub_semver",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/pub_semver-2.1.1",
+      "name": "pool",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/pool-1.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "pub_semver",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/pub_semver-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "shelf",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/shelf-1.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "shelf_packages_handler",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/shelf_packages_handler-3.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "shelf_static",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/shelf_static-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "shelf_web_socket",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/shelf_web_socket-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "sky_engine",
@@ -195,9 +267,21 @@
     },
     {
       "name": "source_gen",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/source_gen-1.2.6",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/source_gen-1.4.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "source_map_stack_trace",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/source_map_stack_trace-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "source_maps",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/source_maps-0.10.12",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "source_span",
@@ -230,16 +314,28 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "test",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/test-1.24.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "test_api",
       "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/test_api-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
-      "name": "typed_data",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/typed_data-1.3.0",
+      "name": "test_core",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/test_core-0.5.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "typed_data",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/typed_data-1.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "vector_math",
@@ -248,16 +344,34 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "watcher",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/watcher-1.0.1",
+      "name": "vm_service",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/vm_service-11.7.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "watcher",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/watcher-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "web_socket_channel",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/web_socket_channel-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "webkit_inspection_protocol",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/webkit_inspection_protocol-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "yaml",
-      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/yaml-3.1.0",
+      "rootUri": "file:///Users/wufd/.pub-cache/hosted/pub.dev/yaml-3.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "jpush_flutter",
@@ -266,7 +380,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-05-18T08:57:51.372351Z",
+  "generated": "2023-07-10T07:27:00.002718Z",
   "generator": "pub",
-  "generatorVersion": "3.0.1"
+  "generatorVersion": "3.0.5"
 }

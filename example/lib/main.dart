@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 
@@ -172,7 +172,7 @@ class _MyAppState extends State<MyApp> {
                     title: "setTags",
                     onPressed: () {
                       jpush.setTags(["lala", "haha"]).then((map) {
-                        var tags = map['tags'];
+                        var tags = map!['tags'];
                         setState(() {
                           debugLable = "set tags success: $map $tags";
                         });
@@ -187,7 +187,7 @@ class _MyAppState extends State<MyApp> {
                     title: "addTags",
                     onPressed: () {
                       jpush.addTags(["lala", "haha"]).then((map) {
-                        var tags = map['tags'];
+                        var tags = map!['tags'];
                         setState(() {
                           debugLable = "addTags success: $map $tags";
                         });
@@ -202,7 +202,7 @@ class _MyAppState extends State<MyApp> {
                     title: "deleteTags",
                     onPressed: () {
                       jpush.deleteTags(["lala", "haha"]).then((map) {
-                        var tags = map['tags'];
+                        var tags = map!['tags'];
                         setState(() {
                           debugLable = "deleteTags success: $map $tags";
                         });
@@ -235,7 +235,7 @@ class _MyAppState extends State<MyApp> {
                     title: "cleanTags",
                     onPressed: () {
                       jpush.cleanTags().then((map) {
-                        var tags = map['tags'];
+                        var tags = map!['tags'];
                         setState(() {
                           debugLable = "cleanTags success: $map $tags";
                         });
@@ -324,7 +324,7 @@ class _MyAppState extends State<MyApp> {
                   onPressed: () {
                     jpush.setBadge(66).then((map) {
                       setState(() {
-                        debugLable = "setBadge success: $map";
+                        debugLable = "setBadge success";
                       });
                     }).catchError((error) {
                       setState(() {
