@@ -94,6 +94,10 @@ public class JPushHelper {
     }
 
     public void dispatchRid() {
+        if (context == null) {
+            Log.d(TAG, "register context is nil.");
+            return;
+        }
         List<Object> tempList = new ArrayList<Object>();
         String rid = JPushInterface.getRegistrationID(context);
         boolean ridAvailable = rid != null && !rid.isEmpty();
