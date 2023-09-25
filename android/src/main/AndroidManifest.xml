@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jiguang.jpush">
 
-    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+<!--    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>-->
 
     <application>
 
@@ -28,14 +28,14 @@
         <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
         <!-- 3.3.0开始所有事件将通过该类回调 -->
         <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
-        <receiver android:name="com.jiguang.jpush.JPushEventReceiver"
+        <service android:name="com.jiguang.jpush.JPushEventReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
                 <category android:name="${applicationId}" />
             </intent-filter>
-        </receiver>
+        </service>
 
         <!-- Since JCore2.0.0 Required SDK核心功能-->
         <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
